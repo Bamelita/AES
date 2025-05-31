@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🔒✨ Cifrado de Mensajes Mágico</title>
+  <meta name="description" content="✨ Cifra y descifra tus mensajes con estilo, voz y seguridad. Ahora con accesos rápidos y modo oscuro.">
+  <meta name="theme-color" content="#6a1b9a" />
+  <link rel="icon" href="icon.ico" type="image/png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- BOTÓN DE CAMBIO DE TEMA -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+    🌗 Modo oscuro / Claro
+  </button>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="container fade-in">
+    <header class="app-header">
+      <h1>🔐 Cifrador/Descifrador</h1>
+      <p class="app-description">✨ Protege tus mensajes mágicamente con múltiples algoritmos y funciones 🧙‍♂️</p>
+    </header>
+
+    <div id="statusMessage" class="status-message" role="status" aria-live="polite">⌛ Esperando mensaje...</div>
+
+    <!-- ENTRADA DE MENSAJE -->
+    <section class="message-section">
+      <div class="form-group">
+        <label for="message" class="input-label">💬 Mensaje:</label>
+        <div class="input-with-dictation">
+          <textarea 
+            id="message" 
+            class="message-input"
+            placeholder="📝 Escribe o dicta tu mensaje aquí... (Ctrl+Espacio para dictar)"
+            aria-label="Campo de entrada de mensaje"
+          ></textarea>
+          <div class="dictation-controls">
+            <button id="startDictation" class="dictation-button" aria-label="Iniciar dictado por voz" title="Ctrl + Espacio">
+              🎤 Dictado por voz
+            </button>
+            <button id="stopDictationBtn" class="action-button stop-dictation">🛑 Detener dictado</button>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECCIÓN DE ALGORITMO -->
+    <section class="algorithm-section">
+      <div class="form-group">
+        <label for="algorithm">🧠Algoritmo:</label>
+        <p class="algorithm-description">🔒 Selecciona el algoritmo de cifrado que deseas utilizar.</p>
+        <select id="algorithm" class="algorithm-dropdown" aria-label="Selecciona un algoritmo de cifrado">
+          <option value="AES">🔐 AES</option>
+          <option value="TripleDES">🔒 Triple DES</option>
+          <option value="Rabbit">🐇 Rabbit</option>
+          <option value="RC4">🎯 RC4</option>
+          <option value="Base64">🧬 Base64</option>
+          <option value="URL">🌐 Codificación URL</option>
+          <option value="Hex">📦 Hexadecimal</option>
+          <option value="Binary">💾 Binario</option>
+        </select>
+        <p id="algorithm-info" class="algorithm-info">ℹ️ Selecciona el método de cifrado que desees aplicar.</p>
+      </div>
+    </section>
+
+    <!-- CLAVE -->
+    <section class="key-section">
+      <div class="form-group clave-container">
+        <label for="keyInput">🔑Clave:</label>
+        <p class="key-description">🔑 Introduce una clave para cifrar/descifrar tu mensaje.</p>
+        <div class="input-with-icon">
+          <input 
+            type="password" 
+            id="key" 
+            class="key-input"
+            placeholder="🔐 Escribe tu clave"
+            aria-label="Clave para cifrado/descifrado"
+          >
+          <button id="toggleKey" class="toggle-password" aria-label="Mostrar/ocultar clave">
+            👁️ Mostrar
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTONES PRINCIPALES -->
+    <section class="actions-section">
+      <div class="action-buttons">
+        <button id="encryptBtn" class="action-button encrypt" aria-label="Cifrar mensaje (Ctrl+Enter)">
+          🔒 Cifrar
+        </button>
+        <button id="decryptBtn" class="action-button decrypt" aria-label="Descifrar mensaje (Ctrl+Shift+Enter)">
+          🔓 Descifrar
+        </button>
+      </div>
+    </section>
+
+    <!-- RESULTADO -->
+    <section class="results-section">
+      <div class="form-group">
+        <label for="outputText">📃Resultado:</label>
+        <textarea 
+          id="output" 
+          class="result-output"
+          placeholder="📦 Aquí aparecerá tu mensaje cifrado o descifrado..."
+          readonly
+          aria-label="Campo de salida del resultado"
+        ></textarea>
+      </div>
+    </section>
+
+    <!-- ACCIONES SECUNDARIAS -->
+    <section class="secondary-actions">
+      <div class="button-group">
+        <button id="copyBtn" class="secondary-button" aria-label="Copiar resultado al portapapeles">
+          📋 Copiar
+        </button>
+        <button id="clearBtn" class="secondary-button" aria-label="Limpiar campos">
+          🧹 Limpiar
+        </button>
+        <button id="swapBtn" class="secondary-button" aria-label="Intercambiar mensaje y resultado">
+          🔄 Intercambiar
+        </button>
+      </div>
+    </section>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+  <script src="aes.js"></script>
+</body>
+</html>

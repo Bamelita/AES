@@ -1,0 +1,343 @@
+/* =========================
+   VARIABLES CSS GLOBALES
+============================ */
+:root {
+  --primary-color: #6a1b9a;
+  --primary-dark: #4a148c;
+  --primary-light: #9c27b0;
+  --primary-lighter: #ce93d8;
+  --secondary-color: #00bcd4;
+  --secondary-dark: #00838f;
+  --error-color: #e53935;
+  --success-color: #43a047;
+  --warning-color: #fb8c00;
+  --info-color: #1e88e5;
+
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --text-muted: #666666;
+
+  --bg-gradient: linear-gradient(135deg, #d29bdb 0%, #c8adcc 100%);
+  --container-bg: rgba(255, 255, 255, 0.92);
+  --input-bg: rgba(255, 255, 255, 0.96);
+  --output-bg: rgba(255, 255, 255, 0.88);
+  --border-color: #e0e0e0;
+
+  --border-radius: 10px;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  --encrypt-color: #4caf50;
+  --decrypt-color: #f44336;
+
+  --container-padding: 2.8rem;
+  --element-spacing: 1.2rem;
+}
+
+/* =========================
+   MODO OSCURO
+============================ */
+body.dark-mode {
+  --bg-gradient: linear-gradient(135deg, #4b6cb7 0%, #6a1b9a 100%);
+  --container-bg: rgba(30, 30, 45, 0.92);
+  --input-bg: rgba(40, 40, 60, 0.96);
+  --output-bg: rgba(50, 50, 70, 0.88);
+  --border-color: #555;
+  --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  --text-light: #f5f5f5;
+  --text-dark: #e0e0e0;
+  --text-muted: #b0b0b0;
+  --primary-color: #7c4dff;
+  --primary-dark: #651fff;
+  --primary-light: #9c27b0;
+  --encrypt-color: #2e7d32;
+  --decrypt-color: #c62828;
+}
+
+/* =========================
+   ESTILOS GENERALES
+============================ */
+body {
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+============================ */
+.container {
+  background-color: var(--container-bg);
+  padding: var(--container-padding);
+  border-radius: var(--border-radius);
+  width: 92%;
+  max-width: 680px;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  margin: 2rem auto;
+  backdrop-filter: blur(8px);
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* =========================
+   TIPOGRAFÍA
+============================ */
+h1 {
+  margin: 0 0 1rem;
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  line-height: 1.3;
+}
+
+p {
+  font-size: 1.15rem;
+  margin-bottom: 1.8rem;
+  color: var(--text-muted);
+}
+
+/* =========================
+   FORMULARIOS
+============================ */
+textarea,
+input,
+select {
+  width: 100%;
+  padding: 1.1rem;
+  margin: 0.6rem 0 1.2rem 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  resize: vertical;
+  background: var(--input-bg);
+  color: var(--text-dark);
+  font-size: 1.05rem;
+  transition: var(--transition);
+  box-sizing: border-box;
+}
+
+textarea {
+  min-height: 140px;
+  line-height: 1.5;
+}
+
+#output {
+  min-height: 140px;
+  font-family: var(--font-mono);
+  white-space: pre-wrap;
+  background: var(--output-bg);
+  line-height: 1.5;
+}
+
+/* =========================
+   SECCIÓN DE VOZ
+============================ */
+.voice-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--input-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+}
+
+.voice-controls {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.audio-visualizer {
+  width: 100%;
+  height: 80px;
+  background: var(--output-bg);
+  margin: 1rem 0;
+  border-radius: var(--border-radius);
+}
+
+/* =========================
+   BOTONES
+============================ */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1.1rem 2rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.05rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex: 1 1 auto;
+  min-width: 160px;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+label {
+  color: #6b21a8; /* Morado acorde al tema */
+  font-size: 1.1rem; /* Un poco más grande */
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+  text-align: left; /* Alineado a la izquierda */
+}
+
+/* Botón verde para Cifrar */
+.encrypt {
+  background-color: #28a745; /* verde esmeralda */
+  border-color: #28a745;
+}
+
+.encrypt:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+/* Botón rojo para Descifrar */
+.decrypt {
+  background-color: #dc3545; /* rojo carmesí */
+  border-color: #dc3545;
+}
+
+.decrypt:hover {
+  background-color: #c82333;
+  border-color: #bd2130;
+}
+
+
+/* =========================
+   BOTÓN DE CAMBIO DE TEMA
+============================ */
+.theme-toggle {
+  position: fixed;
+  top: 1.8rem;
+  right: 1.8rem;
+  background: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.4rem;
+  border-radius: 30px;
+  cursor: pointer;
+  z-index: 100;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  border: none;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* =========================
+   INPUT CON ICONO
+============================ */
+.input-with-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input-with-icon textarea {
+  flex: 1;
+}
+
+.input-with-icon button {
+  margin-left: 8px;
+}
+
+/* =========================
+   CLAVE
+============================ */
+.clave-container {
+  margin: 1.6rem 0;
+  transition: var(--transition);
+}
+
+.clave-container label {
+  display: block;
+  margin-bottom: 0.9rem;
+}
+
+/* =========================
+   BOTÓN MOSTRAR/OCULTAR CLAVE
+============================ */
+.toggle-password {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  margin-top: 0.4rem;
+}
+
+.toggle-password:hover {
+  background: var(--primary-dark);
+}
+.toggle-password:active {
+  transform: translateY(1px);
+}
+.toggle-password:focus {
+  outline: none;
+}
+.hidden {
+  display: none;
+}
+
+/* =========================
+   MEDIA QUERIES
+============================ */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  button {
+    padding: 0.9rem 1.4rem;
+    font-size: 1rem;
+    min-width: 140px;
+  }
+
+  .container {
+    padding: 1.8rem;
+  }
+}

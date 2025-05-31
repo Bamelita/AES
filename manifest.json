@@ -1,0 +1,16 @@
+{
+    "name": "Cifrador AES 🔐",
+    "short_name": "AES App",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#6a1b9a",
+    "theme_color": "#8e24aa",
+    "icons": [
+      {
+        "src": "icon.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+  }
+  
